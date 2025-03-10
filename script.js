@@ -112,6 +112,7 @@ function getPlayRound(e) {
 buttons.addEventListener("click", (e) => getPlayRound(e));
 
 function stopGame() {
+    scoreDiv.remove();
     if (humanScore > computerScore) {
         resultDiv.textContent = `You won the game with a score of ${humanScore} to ${computerScore}`;
     } else {
