@@ -101,8 +101,7 @@ document.body.appendChild(resultDiv);
 
 // Get player choice and play
 function getPlayRound(e) {
-    if (humanScore === 5) return alert("You won!");
-    if (computerScore === 5) return alert("You lost!");
+    if (humanScore === 5 || computerScore === 5) return stopGame();
 
     const choice = e.target.id;
     const result = playRound(choice, getComputerChoice())
@@ -111,3 +110,11 @@ function getPlayRound(e) {
 }
 
 buttons.addEventListener("click", (e) => getPlayRound(e));
+
+function stopGame() {
+    if (humanScore > computerScore) {
+        resultDiv.textContent = `You won the game with a score of ${humanScore} to ${computerScore}`;
+    } else {
+        resultDiv.textContent = `You lost the game with a score of ${computerScore} to ${humanScore}`;
+    }
+}
